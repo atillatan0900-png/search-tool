@@ -1,0 +1,15 @@
+ddgs>=3.8.0
+requests>=2.31.0
+qrcode>=7.4.2
+openpyxl>=3.10.0
+fpdf2>=2.7.0
+python-dotenv>=1.0.0
+pydantic>=2.0.0
+aiohttp>=3.9.0
+asyncio-contextmanager>=1.0.0
+cachetools>=5.3.0
+pyyaml>=6.0
+colorama>=0.4.6
+jinja2>=3.1.0
+click>=8.1.0
+psutil>=5.9.0
