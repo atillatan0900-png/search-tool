@@ -1,0 +1,88 @@
+app:
+  name: "DDGS Advanced File Search"
+  version: "2.1.0"
+  description: "Secure file search tool"
+  language: "tr"  # tr, en, de, fr, es
+
+search:
+  timeout: 10
+  max_results: 100
+  min_results: 1
+  rate_limit_calls: 30
+  rate_limit_period: 60
+  parallel_workers: 5
+  cache_enabled: true
+  cache_ttl: 3600  # seconds
+
+database:
+  name: "linkler.db"
+  encryption: false
+  wal_mode: true
+  auto_cleanup_days: 30
+  backup_enabled: true
+
+security:
+  max_search_length: 200
+  max_url_length: 2048
+  max_filename_length: 255
+  allowed_export_formats:
+    - pdf
+    - excel
+    - html
+    - json
+    - csv
+    - m3u
+  allowed_schemes:
+    - http
+    - https
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "search_tool.log"
+  max_file_size: 10485760  # 10MB
+  backup_count: 5
+
+platforms:
+  default:
+    drive: "site:drive.google.com"
+    mega: "site:mega.nz/file/"
+    yandex: "site:yadi.sk"
+    dropbox: "site:dropbox.com/s/"
+    onedrive: "site:onedrive.live.com"
+    mediafire: "site:mediafire.com/file/"
+    solidfiles: "site:solidfiles.com/v/"
+  
+  extra:
+    4shared: "site:4shared.com"
+    zippyshare: "site:zippyshare.com"
+    gofile: "site:gofile.io"
+    pixeldrain: "site:pixeldrain.com"
+    wetransfer: "site:wetransfer.com"
+    transfer: "site:transfer.sh"
+  
+  torrent:
+    piratebay: "site:piratebay.org"
+    1337x: "site:1337x.to"
+    kickass: "site:kickass.cd"
+    rarbg: "site:rarbg.to"
+
+file_types:
+  video: ["mp4", "mkv", "avi", "mov", "flv", "wmv", "webm", "m3u8"]
+  music: ["mp3", "flac", "wav", "aac", "m4a", "opus", "m3u"]
+  ebook: ["pdf", "epub", "mobi", "cbr", "azw3", "txt"]
+  software: ["exe", "zip", "rar", "7z", "iso", "dmg", "deb", "rpm"]
+  image: ["jpg", "png", "gif", "webp", "psd", "tiff", "bmp", "svg"]
+  code: ["py", "js", "php", "java", "cpp", "sql", "go", "rs", "ts"]
+  archive: ["zip", "rar", "7z", "tar", "gz", "bz2", "xz"]
+
+output:
+  directory: "output"
+  create_if_missing: true
+
+api:
+  enabled: true
+  host: "0.0.0.0"
+  port: 8000
+  debug: false
+  cors_enabled: true
